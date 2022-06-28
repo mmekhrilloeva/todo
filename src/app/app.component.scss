@@ -1,0 +1,102 @@
+.todo {
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgb(247, 152, 97);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+  &__header {
+    font-size: 36px;
+    margin: 0;
+    margin-bottom: 30px;
+    color: white;
+    padding-top: 100px;
+  }
+  &__add {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-input {
+      height: 100%;
+      border: none;
+      padding: 0 10px;
+      width: 300px;
+      border-radius: 10px;
+      &:focus {
+        outline: transparent;
+      }
+    }
+    &-btn {
+      border: none;
+      background-color: rgb(109, 158, 96);
+      height: 100%;
+      padding: 0 10px;
+      margin-left: 10px;
+      border-radius: 50%;
+      color: white;
+      font-size: 24px;
+    }
+  }
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__card {
+    width: 340px;
+    background-color: rgb(138, 128, 200);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: left;
+  }
+  &__title {
+    color: white;
+    font-size: 16px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__delete-btn,
+  &__complete-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+  }
+  &__delete-btn {
+    background-color: rgb(242, 97, 97);
+  }
+  &__update {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+    &-input {
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      width: 80%;
+    }
+    &-btn {
+      border-radius: 10px;
+      border: none;
+      background-color: rgb(72, 76, 220);
+      padding: 10px;
+      color: white;
+    }
+  }
+}
+@media screen and (max-width: 630px) {
+  .todo {
+    &__card {
+      width: 235px;
+    }
+    &__add-input {
+      width: 205px;
+    }
+  }
+}

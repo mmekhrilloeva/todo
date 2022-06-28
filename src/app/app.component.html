@@ -1,0 +1,46 @@
+<div class="todo">
+  <h1 class="todo__header">ToDo List</h1>
+  <section class="todo__add">
+    <input type="text" [value]="" #header class="todo__add-input" />
+    <button (click)="addToDo(header.value)" class="todo__add-btn">+</button>
+  </section>
+  <section *ngFor="let name of title; let i = index" class="todo__card">
+    <div class="todo__container">
+      <p
+        (click)="name.isUpdated = !name.isUpdated"
+        [ngStyle]="{
+          'text-decoration': name.isCompleted ? 'line-through' : 'none'
+        }"
+        class="todo__title"
+      >
+        {{ name.name }}
+      </p>
+
+      <div class="btns">
+        <button (click)="removeToDo(i)" class="todo__delete-btn">Delete</button>
+        <button
+          (click)="markCompletedTask(i)"
+          class="todo__complete-btn"
+          [ngStyle]="{
+            'background-color': !name.isCompleted
+              ? 'rgb(72, 145, 43)'
+              : 'rgb(125, 43, 145)'
+          }"
+        >
+          <span *ngIf="!name.isCompleted">Complete</span>
+          <span *ngIf="name.isCompleted">Uncomplete</span>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="name.isUpdated" class="todo__update">
+      <input #updatedTitle [value]="name.name" class="todo__update-input" />
+      <button
+        (click)="updateToDo(i, updatedTitle.value)"
+        class="todo__update-btn"
+      >
+        Edit
+      </button>
+    </div>
+  </section>
+</div>
+<router-outlet></router-outlet>
